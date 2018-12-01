@@ -24,6 +24,14 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 
     brew install librsvg
 
+Install Kazucoin Core
+------------------------
+
+1. Clone the Kazucoin Core source code and cd into `kazucoin`
+
+        git clone https://github.com/kazucoin/kazucoin-core
+        cd kazucoin-core
+
 Berkeley DB
 -----------
 It is recommended to use Berkeley DB 4.8. If you have to build it yourself,
@@ -58,12 +66,7 @@ from the root of the repository.
 Build Kazucoin Core
 ------------------------
 
-1. Clone the Kazucoin Core source code and cd into `kazucoin`
-
-        git clone https://github.com/kazucoin/kazucoin
-        cd kazucoin
-
-2.  Build Kazucoin Core:
+1.  Build Kazucoin Core:
 
     Configure and build the headless Kazucoin Core binaries as well as the GUI (if Qt is found).
 
@@ -77,11 +80,11 @@ Build Kazucoin Core
         ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" BOOST_LIBS="-L${BOOST_PREFIX}/lib" BOOST_CFLAGS="-I${BDB_PREFIX}/include"
         make
 
-3.  It is recommended to build and run the unit tests:
+2.  It is recommended to build and run the unit tests:
 
         make check
 
-4.  You can also create a .dmg that contains the .app bundle (optional):
+3.  You can also create a .dmg that contains the .app bundle (optional):
 
         make deploy
 
