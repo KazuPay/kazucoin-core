@@ -80,11 +80,7 @@ Build Kazucoin Core
         ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" BOOST_LIBS="-L${BOOST_PREFIX}/lib" BOOST_CFLAGS="-I${BDB_PREFIX}/include"
         make
 
-2.  It is recommended to build and run the unit tests:
-
-        make check
-
-3.  You can also create a .dmg that contains the .app bundle (optional):
+2.  You can also create a .dmg that contains the .app bundle (optional):
 
         make deploy
 
@@ -92,6 +88,8 @@ Running
 -------
 
 Kazucoin Core is now available at `./src/kazucoind` & `./src/kazucoin-cli` & `./src/kazucoin-tx`
+
+However, you should just use the .dmg file that was previously built in your kazucoin-core/ folder.
 
 Before running, it's recommended that you create an RPC configuration file.
 
@@ -104,6 +102,8 @@ The first time you run kazucoind, it will start downloading the blockchain. This
 You can monitor the download process by looking at the debug.log file:
 
     tail -f $HOME/Library/Application\ Support/Kazucoin/debug.log
+    
+You may need to add some peers to your client to connect to the network if none are auto-detected.
 
 Other commands:
 -------
