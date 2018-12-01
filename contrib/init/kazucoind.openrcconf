@@ -1,0 +1,33 @@
+# /etc/conf.d/kazucoind: config file for /etc/init.d/kazucoind
+
+# Config file location
+#KAZUCOIND_CONFIGFILE="/etc/kazucoin/kazucoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $KAZUCOIND_USER)
+#KAZUCOIND_PIDDIR="/var/run/kazucoind"
+
+# What filename to give the pidfile
+#KAZUCOIND_PIDFILE="${KAZUCOIND_PIDDIR}/kazucoind.pid"
+
+# Where to write kazucoind data (be mindful that the blockchain is large)
+#KAZUCOIND_DATADIR="/var/lib/kazucoind"
+
+# User and group to own kazucoind process
+#KAZUCOIND_USER="kazucoin"
+#KAZUCOIND_GROUP="kazucoin"
+
+# Path to kazucoind executable
+#KAZUCOIND_BIN="/usr/bin/kazucoind"
+
+# Nice value to run kazucoind under
+#KAZUCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#KAZUCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for kazucoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+KAZUCOIND_SIGTERM_TIMEOUT=60

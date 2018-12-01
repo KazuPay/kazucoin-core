@@ -1,0 +1,92 @@
+#!/sbin/openrc-run
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/kazucoin/.kazucoin" ]; then
+	KAZUCOIND_DEFAULT_DATADIR="/var/lib/kazucoin/.kazucoin"
+else
+	KAZUCOIND_DEFAULT_DATADIR="/var/lib/kazucoind"
+fi
+
+KAZUCOIND_CONFIGFILE=${KAZUCOIND_CONFIGFILE:-/etc/kazucoin/kazucoin.conf}
+KAZUCOIND_PIDDIR=${KAZUCOIND_PIDDIR:-/var/run/kazucoind}
+KAZUCOIND_PIDFILE=${KAZUCOIND_PIDFILE:-${KAZUCOIND_PIDDIR}/kazucoind.pid}
+KAZUCOIND_DATADIR=${KAZUCOIND_DATADIR:-${KAZUCOIND_DEFAULT_DATADIR}}
+KAZUCOIND_USER=${KAZUCOIND_USER:-${KAZUCOIN_USER:-kazucoin}}
+KAZUCOIND_GROUP=${KAZUCOIND_GROUP:-kazucoin}
+KAZUCOIND_BIN=${KAZUCOIND_BIN:-/usr/bin/kazucoind}
+KAZUCOIND_NICE=${KAZUCOIND_NICE:-${NICELEVEL:-0}}
+KAZUCOIND_OPTS="${KAZUCOIND_OPTS:-${KAZUCOIN_OPTS}}"
+
+name="Kazucoin Core Daemon"
+description="Kazucoin cryptocurrency P2P network daemon"
+
+command="/usr/bin/kazucoind"
+command_args="-pid=\"${KAZUCOIND_PIDFILE}\" \
+		-conf=\"${KAZUCOIND_CONFIGFILE}\" \
+		-datadir=\"${KAZUCOIND_DATADIR}\" \
+		-daemon \
+		${KAZUCOIND_OPTS}"
+
+required_files="${KAZUCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${KAZUCOIND_USER} \
+			-N ${KAZUCOIND_NICE} -w 2000"
+pidfile="${KAZUCOIND_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${KAZUCOIND_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${KAZUCOIND_USER}:${KAZUCOIND_GROUP}" \
+	"${KAZUCOIND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${KAZUCOIND_USER}:${KAZUCOIND_GROUP}" \
+	"${KAZUCOIND_PIDDIR}"
+
+	checkpath -f \
+	-o ${KAZUCOIND_USER}:${KAZUCOIND_GROUP} \
+	-m 0660 \
+	${KAZUCOIND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${KAZUCOIND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run kazucoind."
+		eerror "The setting must appear in ${KAZUCOIND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Kazucoin Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

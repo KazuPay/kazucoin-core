@@ -1,0 +1,6 @@
+usr/local/bin/kazucoin-qt usr/bin
+share/pixmaps/kazucoin32.xpm usr/share/pixmaps
+share/pixmaps/kazucoin16.xpm usr/share/pixmaps
+share/pixmaps/kazucoin128.png usr/share/pixmaps
+debian/kazucoin-qt.desktop usr/share/applications
+debian/kazucoin-qt.protocol usr/share/kde4/services/

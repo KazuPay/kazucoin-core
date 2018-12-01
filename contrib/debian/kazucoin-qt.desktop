@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Kazucoin Core
+Comment=Connect to the Kazucoin P2P Network
+Comment[de]=Verbinde mit dem Kazucoin peer-to-peer Netzwerk
+Comment[fr]=Kazucoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Kazucoin, eşten eşe kriptografik sanal para birimi
+Exec=kazucoin-qt %u
+Terminal=false
+Type=Application
+Icon=kazucoin128
+MimeType=x-scheme-handler/kazucoin;
+Categories=Office;Finance;
+StartupWMClass=Kazucoin-qt

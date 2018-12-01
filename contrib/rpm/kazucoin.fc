@@ -1,0 +1,8 @@
+/usr/bin/kazucoin-cli		--	gen_context(system_u:object_r:kazucoin_exec_t,s0)
+/usr/sbin/kazucoind		--	gen_context(system_u:object_r:kazucoin_exec_t,s0)
+/usr/lib(64)?/kazucoin/kazucoind		--	gen_context(system_u:object_r:kazucoin_exec_t,s0)
+
+/etc/kazucoin(/.*)?		gen_context(system_u:object_r:kazucoin_conf_t,s0)
+/var/lib/kazucoin(/.*)?		gen_context(system_u:object_r:kazucoin_var_lib_t,s0)
+
+(/var)?/run/kazucoind(/.*)?   gen_context(system_u:object_r:kazucoin_var_run_t,s0)

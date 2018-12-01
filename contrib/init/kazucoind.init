@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  kazucoind The kazucoin core server.
+#
+#
+# chkconfig: 345 80 20
+# description: kazucoind
+# processname: kazucoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/kazucoind, see below
+if [ -f /etc/sysconfig/kazucoind ]; then
+        . /etc/sysconfig/kazucoind
+fi
+
+RETVAL=0
+
+prog=kazucoind
+# you can override the lockfile via KAZUCOIND_LOCKFILE in /etc/sysconfig/kazucoind
+lockfile=${KAZUCOIND_LOCKFILE-/var/lock/subsys/kazucoind}
+
+# kazucoind defaults to /usr/bin/kazucoind, override with KAZUCOIND_BIN
+kazucoind=${KAZUCOIND_BIN-/usr/bin/kazucoind}
+
+# kazucoind opts default to -disablewallet, override with KAZUCOIND_OPTS
+kazucoind_opts=${KAZUCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $kazucoind $kazucoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
