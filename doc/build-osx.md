@@ -27,7 +27,7 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 Install Kazucoin Core
 ------------------------
 
-1. Clone the Kazucoin Core source code and cd into `kazucoin`
+Clone the Kazucoin Core source code and cd into `kazucoin-core`
 
         git clone https://github.com/kazucoin/kazucoin-core
         cd kazucoin-core
@@ -74,8 +74,8 @@ Build Kazucoin Core
     
     Be sure to install BDB and Boost from above
 
-        export BDB_PREFIX='/{Your Path}/kazucoin-core/db4'
-        export BOOST_ROOT='/{Your Path}/kazucoin-core/boostkazucoin'
+        export BDB_PREFIX='/$(pwd)/db4'
+        export BOOST_ROOT='/$(pwd)/boostkazucoin'
         ./autogen.sh
         ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" BOOST_LIBS="-L${BOOST_PREFIX}/lib" BOOST_CFLAGS="-I${BDB_PREFIX}/include"
         make
@@ -91,7 +91,7 @@ Build Kazucoin Core
 Running
 -------
 
-Kazucoin Core is now available at `./src/kazucoind`
+Kazucoin Core is now available at `./src/kazucoind` & `./src/kazucoin-cli` & `./src/kazucoin-tx`
 
 Before running, it's recommended that you create an RPC configuration file.
 
