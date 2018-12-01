@@ -54,7 +54,7 @@ export BOOST_HAS_PTHREADS ON
 export Boost_USE_MULTITHREADED ON
 ./bootstrap.sh --prefix=/$(pwd)/../kazucoin-core/boostkazucoin 
 ./b2 install --prefix=/$(pwd)/../kazucoin-core/boostkazucoin --layout=tagged --threading=multi --without-mpi --build-type=complete
-cd ~
+cd ..
 mkdir contrib/Frameworks
 cp boostkazucoin/lib/libboost_system-mt.dylib ./contrib/Frameworks/
 ```
