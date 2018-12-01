@@ -48,7 +48,7 @@ Boost
 wget "https://sourceforge.net/projects/boost/files/boost/1.65.0/boost_1_65_0.tar.gz/download" -O boost_1_65_0.tar.gz
 tar -xvzf boost_1_65_0.tar.gz
 
-cd ~/boost_1_65_0
+cd boost_1_65_0/
 export BOOST_HAS_THREADS ON
 export BOOST_HAS_PTHREADS ON
 export Boost_USE_MULTITHREADED ON
