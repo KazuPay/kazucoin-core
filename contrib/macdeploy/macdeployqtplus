@@ -253,11 +253,7 @@ def runStrip(binaryPath, verbose):
         print(" stripped", binaryPath)
     subprocess.check_call([stripbin, "-x", binaryPath])
 
-def copyFramework(framework, path, verbose):
-    
-    # Make sure this is copied over
-    os.system("cp contrib/Frameworks/libboost_system-mt.dylib dist/Kazucoin-Qt.app/Contents/Frameworks/")
-    
+def copyFramework(framework, path, verbose):    
     if framework.sourceFilePath.startswith("Qt"):
         #standard place for Nokia Qt installer's frameworks
         fromPath = "/Library/Frameworks/" + framework.sourceFilePath
