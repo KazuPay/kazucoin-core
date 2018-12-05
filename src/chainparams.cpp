@@ -210,7 +210,8 @@ public:
         vSeeds.emplace_back("seed2.kazucoin.io");
         vSeeds.emplace_back("seed3.kazucoin.io");
         vSeeds.emplace_back("seed.kazucoin.io");
-
+        vSeeds.emplace_back("seed.kazuexplore.com");
+        vSeeds.emplace_back("seed.kazupool.com");
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,45);
@@ -234,6 +235,16 @@ public:
             {     0, uint256S("0x758f3d45d6b5d2b08b3715c4fc1a75b6dc46ee5c08f059ccd2ea14e1c50f6349")},
             {  5000, uint256S("0x40b8e8f8b091e8ea3bbc401deb23f1bc41256eb285f021130a1725982bdb7098")},
             { 10000, uint256S("0x10384b6fd8ea6478e5e10752abc48469359a294e577b2566148acdae05f685ee")},
+            { 20000, uint256S("0xe799b883a499690ab0db26e3f357e3b1f2a6a5669e4b561bf302a95e7d220dda")},
+            { 30000, uint256S("0xea816ab2564f6211830f0156c057488e6bd0b29fe2301b64a7734faa41de705f")},
+            { 40000, uint256S("0xf37afccfd681a8f329bf3c6e87974bbfc1582a7e5ed7f4d4efda64943c9407c3")},
+            { 50000, uint256S("0x0d59cd3994c4d4b164d7f6b36c3753490df86111f029ba83f7641d0101eb831c")},
+            { 60000, uint256S("0x2cdd88ce315bcdcb6610db12bc5fd5ae616633d2edaf229fb91507fd1c23856c")},
+            { 70000, uint256S("0x3e50c96fcc09ee322ae014f3fe29b0cdc45d13151e9080de7d03f7359397e750")},
+            { 80000, uint256S("0xb88bdacd5898cf14cad26876f50fb67ecbbde016c27030b0f101586e05932708")},
+            { 90000, uint256S("0x7eca151b9c7870c214c2c57dc320ed7df559fc5cd57395c5e1775c67025905c9")},
+            { 100000, uint256S("0xee2763883cdfa5014766fefca2fd3c20a8c31b41a906558b9ed18cd6f0868647")},
+
          }
         };
 
