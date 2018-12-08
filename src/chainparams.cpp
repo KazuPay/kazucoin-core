@@ -86,7 +86,7 @@ public:
 
         consensus.powLimit = ArithToUint256(~arith_uint256(0) >> 20);
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetSpacing = 60 / 4;
+        consensus.nPowTargetSpacing = 150 / 4;
 
         /** Current Kazucoin 2017 Difficulty Adjustment Code & Block Target. See explanation here: 
 
