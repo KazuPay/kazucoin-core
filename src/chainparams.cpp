@@ -118,8 +118,8 @@ public:
         consensus.nIntervalRe = consensus.nTargetTimespanRe / consensus.nTargetSpacingRe; // 1 block
 
         consensus.nAveragingInterval = 10; // 10 blocks
-        consensus.multiAlgoTargetSpacing = 60*5; // NUM_ALGOS * 30 seconds
-        consensus.multiAlgoTargetSpacingV4 = 30*5; // NUM_ALGOS * 15 seconds
+        consensus.multiAlgoTargetSpacing = 300*5; // NUM_ALGOS * 300 seconds
+        consensus.multiAlgoTargetSpacingV4 = 150*5; // NUM_ALGOS * 150 seconds
         consensus.nAveragingTargetTimespan = consensus.nAveragingInterval * consensus.multiAlgoTargetSpacing; // 10* NUM_ALGOS * 30
         consensus.nAveragingTargetTimespanV4 = consensus.nAveragingInterval * consensus.multiAlgoTargetSpacingV4; // 10 * NUM_ALGOS * 15
 
@@ -247,6 +247,9 @@ public:
             { 110005, uint256S("0x00000e5f3addde45b1d69872f9dd8bf7444a01d2f06afbb4c41ca00da99a36b8")},
             { 110010, uint256S("0x0000000000008f67cee4808cec6e7c64c5b6f41b0f80487997d9bc8d31ca93c9")},
             { 110020, uint256S("0x000000000000036eece30c60d166e0ddfc6961330c0e688a3e0fdb66d4e9c505")},
+            { 112000, uint256S("0x1a0c41e118a6dbedb521a3a5ef1f8383145e7c1c34012fa179588150308bacb5")},
+            { 113000, uint256S("0x54ee505c3862f0b74b6b74c45982252450d00f50c5aa459cbf7a27b6e7e5e608")},
+            { 114000, uint256S("0xafbdec0c46f7f6c74b32458dfaa08de97a828ca5ffcb60d4de709ca0f5a22d37")},
          }
         };
 
