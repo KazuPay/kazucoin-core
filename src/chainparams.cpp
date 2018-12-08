@@ -120,10 +120,10 @@ public:
         consensus.nAveragingInterval = 10; // 10 blocks
         consensus.multiAlgoTargetSpacing = 60*5; // NUM_ALGOS * 30 seconds
         consensus.multiAlgoTargetSpacingV4 = 30*5; // NUM_ALGOS * 15 seconds
-        //consensus.multiAlgoTargetSpacing = 300*5; // NUM_ALGOS * 300 seconds
-        //consensus.multiAlgoTargetSpacingV4 = 150*5; // NUM_ALGOS * 150 seconds
+        consensus.multiAlgoTargetSpacingV4fix = 150*5; // NUM_ALGOS * 150 seconds
         consensus.nAveragingTargetTimespan = consensus.nAveragingInterval * consensus.multiAlgoTargetSpacing; // 10* NUM_ALGOS * 30
         consensus.nAveragingTargetTimespanV4 = consensus.nAveragingInterval * consensus.multiAlgoTargetSpacingV4; // 10 * NUM_ALGOS * 15
+        consensus.nAveragingTargetTimespanV4fix = consensus.nAveragingInterval * consensus.multiAlgoTargetSpacingV4fix; // 10 * NUM_ALGOS * 15
 
         consensus.nMaxAdjustDown = 40; // 40% adjustment down
         consensus.nMaxAdjustUp = 20; // 20% adjustment up
