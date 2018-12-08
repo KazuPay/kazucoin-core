@@ -324,7 +324,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 		return GetNextWorkRequiredV2(pindexLast, params, algo);
 	} else if(pindexLast->nHeight < params.workComputationChangeTarget){
 		return GetNextWorkRequiredV3(pindexLast, params, algo);
-	} else if(pindexLast->nHeight < 117500)
+	} else if(pindexLast->nHeight < 117000)
 		return GetNextWorkRequiredV4(pindexLast, params, algo);
 	else
 		return GetNextWorkRequiredV4fix(pindexLast, params, algo);
