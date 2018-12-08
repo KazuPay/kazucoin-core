@@ -92,6 +92,7 @@ struct Params {
 	int64_t nAveragingInterval;
     int64_t multiAlgoTargetSpacing;
 	int64_t multiAlgoTargetSpacingV4;
+	int64_t multiAlgoTargetSpacingV4fix;
     int64_t nAveragingTargetTimespan;
 	int64_t nAveragingTargetTimespanV4;
 	int64_t nAveragingTargetTimespanV4fix;
