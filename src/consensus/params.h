@@ -110,7 +110,9 @@ struct Params {
 	int64_t nMaxActualTimespanV3;
 	int64_t nMinActualTimespanV4;
 	int64_t nMaxActualTimespanV4;
-
+	int64_t nMinActualTimespanV4fix;
+	int64_t nMaxActualTimespanV4fix;
+	
 	int64_t nLocalTargetAdjustment;
 	int64_t nLocalDifficultyAdjustment;
 
