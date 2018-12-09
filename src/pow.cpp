@@ -264,10 +264,10 @@ unsigned int GetNextWorkRequiredV4fix(const CBlockIndex* pindexLast, const Conse
 	int64_t nActualTimespan = pindexLast-> GetMedianTimePast() - pindexFirst->GetMedianTimePast();
 	nActualTimespan = params.nAveragingTargetTimespanV4fix + (nActualTimespan - params.nAveragingTargetTimespanV4fix)/4;
 
-	if (nActualTimespan < params.nMinActualTimespanV4)
-		nActualTimespan = params.nMinActualTimespanV4;
-	if (nActualTimespan > params.nMaxActualTimespanV4)
-		nActualTimespan = params.nMaxActualTimespanV4;
+	if (nActualTimespan < params.nMinActualTimespanV4fix)
+		nActualTimespan = params.nMinActualTimespanV4fix;
+	if (nActualTimespan > params.nMaxActualTimespanV4fix)
+		nActualTimespan = params.nMaxActualTimespanV4fix;
 
 	//Global retarget
 	arith_uint256 bnNew;
