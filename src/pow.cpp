@@ -264,7 +264,7 @@ unsigned int GetNextWorkRequiredV4fix(const CBlockIndex* pindexLast, const Conse
 	int64_t nActualTimespan = pindexLast-> GetMedianTimePast() - pindexFirst->GetMedianTimePast();
 	nActualTimespan = params.nAveragingTargetTimespanV4fix + (nActualTimespan - params.nAveragingTargetTimespanV4fix)/4;
 
-	if (pindexLast->nHeight < 117014)
+	if (pindexLast->nHeight < 117015)
 	{
 		if (nActualTimespan < params.nMinActualTimespanV4)
  			nActualTimespan = params.nMinActualTimespanV4;
