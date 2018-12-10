@@ -19,6 +19,7 @@ unsigned int GetNextWorkRequiredv1(const CBlockIndex* pindexLast, const CBlockHe
 unsigned int GetNextWorkRequiredv2(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params&, int algo);
 unsigned int GetNextWorkRequiredv3(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params&, int algo);
 unsigned int GetNextWorkRequiredv4(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params&, int algo);
+unsigned int GetNextWorkRequiredv4fix(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params&, int algo);
 unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nFirstBlockTime, const Consensus::Params&);
 
 /** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
